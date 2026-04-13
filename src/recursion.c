@@ -1,20 +1,31 @@
-/*
-WEEK 1 — TASK 2 (Recursion)
+#include <stdio.h>
 
-Goal:
-Practice recursion.
+// Recursive function to print the pyramid
+void draw(int n) {
+    // Base case: if n is 0, stop the recursion
+    if (n <= 0) {
+        return;
+    }
 
-Task:
-1. Ask the user for a positive integer n.
-2. Use a recursive function to print:
+    // Call the function again with n-1 to print previous rows first
+    draw(n - 1);
 
-#
-##
-###
-####
+    // Print '#' for the current row
+    for (int i = 0; i < n; i++) {
+        printf("#");
+    }
+    printf("\n");
+}
 
-Rules:
-- You must create a recursive function.
-- You cannot use a loop to print rows.
-- Base case must be correct.
-*/
+int main() {
+    int height;
+
+    // Get input from the user
+    printf("Enter the height of the pyramid: ");
+    scanf("%d", &height);
+
+    // Start the recursive function
+    draw(height);
+
+    return 0;
+}
